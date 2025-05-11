@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingBottom="80dp">
+
+        <TextView
+            android:id="@+id/tituloSubida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📄 Sube una factura"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Botón para seleccionar archivos -->
+        <Button
+            android:id="@+id/btnSeleccionar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elegir archivos" />
+
+        <Button
+            android:id="@+id/btnFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📸 Hacer foto de factura" />
+
+        <TextView
+            android:id="@+id/archivoSeleccionado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ningún archivo seleccionado"
+            android:paddingTop="8dp"
+            android:textColor="#888888" />
+
+        <Button
+            android:id="@+id/btnProcesar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📤 Procesar facturas"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="?attr/colorPrimary" />
+
+        <ProgressBar
+            android:id="@+id/progreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⏳ Cola de facturas pendientes"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="32dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaFacturas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

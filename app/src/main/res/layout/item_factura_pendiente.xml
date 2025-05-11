@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/colArchivo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="archivo.json"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/colProveedor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Proveedor"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/colFecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="15/04/2025"
+        android:textSize="10sp" />
+
+    <ImageButton
+        android:id="@+id/btnRevisar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:backgroundTint="#28a745"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_menu_edit"
+        android:background="@drawable/rounded_button_green"
+        android:contentDescription="Revisar factura"
+        />
+
+
+</LinearLayout>
