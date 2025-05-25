@@ -1,8 +1,8 @@
-<p align="center"><a href="https://github.com/javiidoce/ScanFlow" target="_blank"><img src="https://i.imgur.com/8TcOm6o.jpeg" width="200" alt="Logo"></a></p>
+<p align="center"><a href="https://github.com/javiidoce/ScanFlow" target="_blank"><img src="https://i.imgur.com/vshzzLy.png" width="200" alt="Logo"></a></p>
 
 ***
 
-# CoachHub
+# ScanFlow
 
 ScanFlow es una aplicación de Android la cual trata de hacerle la vida más facil a los usuarios que tengan que llevar una gestión de la contabilidad, permitiendoles subir facturas digitalmente o mediante una foto y que estas sean procesadas sin necesidad de que el usuario escriba los datos manualmente.
 
