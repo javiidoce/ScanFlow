@@ -309,7 +309,7 @@ class RevisarFacturaFragment : Fragment() {
             val request = Request.Builder()
                 .url("https://api.holded.com/api/invoicing/v1/contacts")
                 .addHeader("accept", "application/json")
-                .addHeader("key", "f1bd3c86af452c634b5e3381456cb884")
+                .addHeader("key", "key")
                 .build()
 
             val response = client.newCall(request).execute()
@@ -356,7 +356,7 @@ class RevisarFacturaFragment : Fragment() {
                 val request = Request.Builder()
                     .url("https://api.holded.com/api/invoicing/v1/expensesaccounts")
                     .addHeader("accept", "application/json")
-                    .addHeader("key", "f1bd3c86af452c634b5e3381456cb884")
+                    .addHeader("key", "key")
                     .build()
 
                 val response = client.newCall(request).execute()
@@ -447,7 +447,7 @@ class RevisarFacturaFragment : Fragment() {
     ): JSONObject {
 
         val client = OkHttpClient()
-        val token = "f1bd3c86af452c634b5e3381456cb884"
+        val token = "key"
 
         var finalContactId = contactoId
         Log.d("Contacto ID", finalContactId.toString())
@@ -530,7 +530,7 @@ class RevisarFacturaFragment : Fragment() {
         return withContext(Dispatchers.IO) {
             try {
                 val client = OkHttpClient()
-                val token = "f1bd3c86af452c634b5e3381456cb884"
+                val token = "key"
 
                 val request = Request.Builder()
                     .url("https://api.holded.com/api/invoicing/v1/documents/$tipoFactura")
@@ -583,7 +583,7 @@ class RevisarFacturaFragment : Fragment() {
 
     private suspend fun subirPdfAHolded(documentId: String, pdfFile: File): Boolean = withContext(Dispatchers.IO) {
         try {
-            val token = "f1bd3c86af452c634b5e3381456cb884"
+            val token = "key"
 
             val requestBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
