@@ -7,16 +7,56 @@
     android:padding="16dp"
     android:background="#F5F6F7">
 
-    <TextView
-        android:id="@+id/tituloProcesadas"
+    <SearchView
+        android:id="@+id/searchProveedor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Facturas procesadas"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:queryHint="Buscar por proveedor"
+        android:iconifiedByDefault="false"
+        android:layout_marginBottom="8dp" />
+
+
+    <LinearLayout
+        android:id="@+id/fechaFiltrosLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center"
         android:paddingBottom="12dp"
-        android:layout_marginTop="20dp" />
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/btnFechaInicio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha inicio"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#6200EE"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnFechaFin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha fin"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#6200EE"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnLimpiarFiltro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Limpiar filtro"
+            android:backgroundTint="#B00020"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProcesadas"
@@ -24,7 +64,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="8dp"
+        android:scrollbars="vertical" />
 
 </LinearLayout>
-

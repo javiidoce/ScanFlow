@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
 
+        bottomNav.selectedItemId = R.id.nav_inicio
+
         loadFragment(InicioFragment()) /* cargamos el fragmento de inicio por defecto */
 
         bottomNav.setOnItemSelectedListener {

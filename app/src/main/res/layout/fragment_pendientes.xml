@@ -3,68 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F5F6F7">
+    android:background="#F5F6F7"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="📄 Facturas pendientes de revisar"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="#222222"
         android:gravity="center"
         android:paddingBottom="12dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#dbe9ff"
-        android:padding="6dp">
+        android:padding="8dp"
+        android:background="#e2e8f0"
+        android:elevation="2dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Selección"
+            android:text="✓"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="#333" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="Archivo"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="#333" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="Proveedor"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="#333" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="Fecha"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="#333" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Revisar"
+            android:text="📄"
             android:textStyle="bold"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="#333"
+            android:layout_marginEnd="4dp"/>
     </LinearLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPendientes"
@@ -72,7 +80,10 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="40dp"
+        android:background="@android:color/white"
+        android:elevation="1dp" />
 
     <Button
         android:id="@+id/btnEliminar"
@@ -80,7 +91,10 @@
         android:layout_height="wrap_content"
         android:text="🗑 Eliminar seleccionadas"
         android:textColor="@android:color/white"
-        android:backgroundTint="#d9534f"
-        android:layout_gravity="center"
-        android:layout_marginBottom="100dp"/>
+        android:textAllCaps="false"
+        android:backgroundTint="#dc3545"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
 </LinearLayout>
