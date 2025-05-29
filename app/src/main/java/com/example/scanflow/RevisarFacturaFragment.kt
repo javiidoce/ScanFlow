@@ -57,7 +57,7 @@ class RevisarFacturaFragment : Fragment() {
             val archivoJson = File(requireContext().filesDir, archivo)
 
             if (!archivoJson.exists()) {
-                println("❌ Archivo no encontrado")
+                println("Archivo no encontrado")
                 return@launch
             }
 
@@ -141,7 +141,7 @@ class RevisarFacturaFragment : Fragment() {
             }
 
             val cuentas = obtenerCuentasContables()
-            cuentasFiltradas = cuentas.filter {
+            cuentasFiltradas = cuentas.filter { /* contable, de productos, revisas holded */
                 it.accountNum in listOf(
                     60000000,
                     62100000,
@@ -178,8 +178,8 @@ class RevisarFacturaFragment : Fragment() {
             spinnerTipo.adapter = adapterTipo
 
             view.findViewById<TextView>(R.id.avisoLineas).text =
-                contactoDetectado?.nombre?.let { "✅ Proveedor detectado: $it" }
-                    ?: "⚠️ No se detectó proveedor automáticamente: $proveedorExtraido"
+                contactoDetectado?.nombre?.let { "Proveedor detectado: $it" }
+                    ?: "No se detectó proveedor automáticamente: $proveedorExtraido"
 
             Log.d("prueba", "Proveedor detectado: $contactoDetectado")
         }
@@ -247,7 +247,7 @@ class RevisarFacturaFragment : Fragment() {
 
                 Toast.makeText(
                     requireContext(),
-                    if (status == 1) "✅ Factura enviada correctamente" else "❌ Error al enviar la factura",
+                    if (status == 1) "Factura enviada correctamente" else "Error al enviar la factura",
                     Toast.LENGTH_LONG
                 ).show()
 
@@ -259,7 +259,7 @@ class RevisarFacturaFragment : Fragment() {
                     if (pdfFile.exists()) {
                         subirPdfAHolded(id, pdfFile)
                     } else {
-                        Log.e("PDF", "❌ No se encontró el archivo PDF: ${pdfFile.name}")
+                        Log.e("PDF", "No se encontró el archivo PDF: ${pdfFile.name}")
                     }
 
                     val fechaEnvio = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault()).format(Date())
@@ -273,11 +273,11 @@ class RevisarFacturaFragment : Fragment() {
                     val destino = File(carpetaProcesadas, archivoJson.name)
 
                     val movido = archivoJson.renameTo(destino)
-                    Log.d("ARCHIVO", if (movido) "✅ JSON movido a carpeta procesadas" else "❌ No se pudo mover el JSON")
+                    Log.d("ARCHIVO", if (movido) "JSON movido a carpeta procesadas" else "No se pudo mover el JSON")
 
                     if (pdfFile.exists()) {
                         val borrado = pdfFile.delete()
-                        Log.d("ARCHIVO", if (borrado) "✅ PDF borrado" else "❌ No se pudo borrar el PDF")
+                        Log.d("ARCHIVO", if (borrado) "PDF borrado" else "No se pudo borrar el PDF")
                     }
 
                     val fragment = PendientesFragment()
@@ -491,7 +491,6 @@ class RevisarFacturaFragment : Fragment() {
             }
         }
 
-        // Fechas
         val fechaPedido = convertirFechaUnix(factura.optString("fecha_pedido"))
         var fechaVencimiento = convertirFechaUnix(factura.optString("fecha_vencimiento"))
         if (fechaVencimiento == null || fechaVencimiento == 0L) {
@@ -544,14 +543,14 @@ class RevisarFacturaFragment : Fragment() {
                 if (response.isSuccessful) {
                     val responseBody = response.body?.string()
                     val json = JSONObject(responseBody ?: "{}")
-                    Log.d("FACTURA", "✅ Factura enviada: $json")
+                    Log.d("FACTURA", "Factura enviada: $json")
                     return@withContext json
                 } else {
-                    Log.e("FACTURA", "❌ Error ${response.code}: ${response.message}")
+                    Log.e("FACTURA", "Error ${response.code}: ${response.message}")
                     return@withContext null
                 }
             } catch (e: Exception) {
-                Log.e("FACTURA", "❌ Excepción al enviar factura", e)
+                Log.e("FACTURA", "Excepción al enviar factura", e)
                 return@withContext null
             }
         }
@@ -606,16 +605,16 @@ class RevisarFacturaFragment : Fragment() {
 
             val responseBody = response.body?.string()
             if (response.isSuccessful) {
-                Log.d("PDF", "✅ PDF subido correctamente")
+                Log.d("PDF", "PDF subido correctamente")
                 Log.d("PDF", "Respuesta: $responseBody")
                 return@withContext true
             } else {
-                Log.e("PDF", "❌ Error al subir PDF: ${response.code} - ${response.message}")
+                Log.e("PDF", "Error al subir PDF: ${response.code} - ${response.message}")
                 Log.e("PDF", "Cuerpo respuesta: $responseBody")
             }
 
         } catch (e: Exception) {
-            Log.e("PDF", "❌ Excepción al subir PDF", e)
+            Log.e("PDF", "Excepción al subir PDF", e)
         }
 
         return@withContext false

@@ -57,7 +57,7 @@ class ProcesadasFragment : Fragment() {
 
         btnFechaInicio.setOnClickListener {
             mostrarSelectorFecha(fechaInicio) { fecha ->
-                // Si fecha fin existe y la nueva inicio es mayor que fin, error
+                /* si fecha fin existe y la nueva inicio es mayor que fin, error */
                 if (fechaFin != null) {
                     val formatoFecha = java.text.SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                     val nuevaInicio = formatoFecha.parse(fecha)
@@ -75,7 +75,7 @@ class ProcesadasFragment : Fragment() {
 
         btnFechaFin.setOnClickListener {
             mostrarSelectorFecha(fechaFin) { fecha ->
-                // Si fecha inicio existe y la nueva fin es menor que inicio, error
+                /* lo mismo que antes */
                 if (fechaInicio != null) {
                     val formatoFecha = java.text.SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                     val inicio = formatoFecha.parse(fechaInicio)
@@ -130,14 +130,13 @@ class ProcesadasFragment : Fragment() {
             }
         }
 
-        // Aplicar filtro si existen fechas seleccionadas
         filtrarFacturas()
     }
 
     private fun mostrarSelectorFecha(fechaActual: String?, onFechaSeleccionada: (String) -> Unit) {
         val calendario = Calendar.getInstance()
 
-        // Si hay fecha actual, la ponemos en el calendario para que el datepicker arranque ahí
+        /* si hay fecha actual, la ponemos en el calendario para que el datepicker arranque desde ahí */
         fechaActual?.let {
             try {
                 val formatoFecha = java.text.SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -146,7 +145,6 @@ class ProcesadasFragment : Fragment() {
                     calendario.time = date
                 }
             } catch (e: Exception) {
-                // No pasa nada, si falla, se pone fecha actual
             }
         }
 
@@ -181,7 +179,7 @@ class ProcesadasFragment : Fragment() {
             }
         }
 
-        if (filtradas.isEmpty()) {
+        if (filtradas.isEmpty()) { /* no aparecen??*/ /* (revisar) */
             Toast.makeText(context, "No hay facturas para el rango seleccionado", Toast.LENGTH_SHORT).show()
         }
 
@@ -203,7 +201,7 @@ class ProcesadasFragment : Fragment() {
     private fun filtrarPorProveedor(texto: String?) {
         val textoMinus = texto?.lowercase(Locale.getDefault()) ?: ""
 
-        // Filtramos según proveedor y rango de fechas
+        /* filtramos por proveedor y rango de fechas */ /* revisar funcionamiento del rango */
         val filtradas = facturasTotales.filter { factura ->
             val proveedorMatch = factura.proveedor.lowercase(Locale.getDefault()).contains(textoMinus)
 

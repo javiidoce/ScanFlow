@@ -165,7 +165,7 @@ class InicioFragment : Fragment() {
             val pdfTemp = convertirImagenAPdf(requireContext(), fotoFile, "temporal")
 
             if (pdfTemp != null) {
-                archivoUri = Uri.fromFile(pdfTemp) // Solo lo guardas para procesar después
+                archivoUri = Uri.fromFile(pdfTemp)
                 archivoSeleccionado.text = pdfTemp.name
             } else {
                 Toast.makeText(context, "Error al convertir imagen a PDF", Toast.LENGTH_SHORT).show()
